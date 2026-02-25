@@ -18,6 +18,4 @@ public class Produto {
     private String descricao;
     private Double valor;
 
-
-
 }
