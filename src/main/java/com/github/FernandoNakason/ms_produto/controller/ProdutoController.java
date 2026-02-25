@@ -1,12 +1,14 @@
 package com.github.FernandoNakason.ms_produto.controller;
 
-import com.github.FernandoNakason.ms_produto.dto.ProdutoInputDTO;
-import com.github.FernandoNakason.ms_produto.dto.ProdutoResponseDTO;
-import com.github.FernandoNakason.ms_produto.entities.Produto;
+import com.github.FernandoNakason.ms_produto.dto.ProdutoDTO;
+import com.github.FernandoNakason.ms_produto.service.ProdutoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,24 +16,21 @@ import java.util.List;
 
 public class ProdutoController {
 
+    @Autowired
+    private ProdutoService produtoService;
+
     @GetMapping
-    public ResponseEntity<List<ProdutoResponseDTO>> getProduto(){
+    public ResponseEntity<List<ProdutoDTO>> getAllProdutos(){
+        List<ProdutoDTO> list = produtoService.findAllProdutos();
 
-        List<ProdutoResponseDTO> dto = ProdutoResponseDTO.createMock();
-
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(list);
     }
 
-    /* List <Produto> produtos = new ArrayList<>();
-        produtos.add(new Produto(1L,"Smart tv", "Smart TV LG LED 50 polegadas",2285.0));
-        produtos.add(new Produto(2L,"Mouse Microsoft", "Mouse sem fio",250.0));
-        produtos.add(new Produto(3L,"Teclado Microsoft", "Teclado sem fio",278.95));
-        */
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDTO> getProdutoById(@PathVariable Long id){
+        ProdutoDTO produtoDTO = produtoService.findProdutoById(id);
 
-    @PostMapping
-    public ResponseEntity<ProdutoResponseDTO> createProduto(@RequestBody ProdutoInputDTO inputDTO){
-       ProdutoResponseDTO dto = new ProdutoResponseDTO(1L,inputDTO.getNome(), inputDTO.getDescricao(),
-               inputDTO.getValor());
-      return ResponseEntity.created(null).body(dto);
+        return ResponseEntity.ok(produtoDTO);
     }
+
 }
