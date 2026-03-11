@@ -1,4 +1,4 @@
-package com.github.FernandoNakason.ms_produto.exceptions;
+package com.github.FernandoNakasone.ms_produto.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

@@ -1,10 +1,9 @@
-package com.github.FernandoNakason.ms_produto.controller;
+package com.github.FernandoNakasone.ms_produto.controller;
 
-import com.github.FernandoNakason.ms_produto.dto.ProdutoDTO;
-import com.github.FernandoNakason.ms_produto.service.ProdutoService;
+import com.github.FernandoNakasone.ms_produto.dto.ProdutoDTO;
+import com.github.FernandoNakasone.ms_produto.service.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

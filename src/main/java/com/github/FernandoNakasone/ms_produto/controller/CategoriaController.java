@@ -1,7 +1,7 @@
-package com.github.FernandoNakason.ms_produto.controller;
+package com.github.FernandoNakasone.ms_produto.controller;
 
-import com.github.FernandoNakason.ms_produto.dto.CategoriaDTO;
-import com.github.FernandoNakason.ms_produto.service.CategoriaService;
+import com.github.FernandoNakasone.ms_produto.dto.CategoriaDTO;
+import com.github.FernandoNakasone.ms_produto.service.CategoriaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

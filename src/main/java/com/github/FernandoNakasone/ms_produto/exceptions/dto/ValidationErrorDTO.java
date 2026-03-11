@@ -1,4 +1,4 @@
-package com.github.FernandoNakason.ms_produto.exceptions.dto;
+package com.github.FernandoNakasone.ms_produto.exceptions.dto;
 
 import lombok.Getter;
 

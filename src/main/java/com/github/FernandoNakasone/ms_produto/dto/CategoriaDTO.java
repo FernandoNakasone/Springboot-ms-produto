@@ -1,6 +1,6 @@
-package com.github.FernandoNakason.ms_produto.dto;
+package com.github.FernandoNakasone.ms_produto.dto;
 
-import com.github.FernandoNakason.ms_produto.entities.Categoria;
+import com.github.FernandoNakasone.ms_produto.entities.Categoria;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

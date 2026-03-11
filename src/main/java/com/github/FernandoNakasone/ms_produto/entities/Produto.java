@@ -1,4 +1,4 @@
-package com.github.FernandoNakason.ms_produto.entities;
+package com.github.FernandoNakasone.ms_produto.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

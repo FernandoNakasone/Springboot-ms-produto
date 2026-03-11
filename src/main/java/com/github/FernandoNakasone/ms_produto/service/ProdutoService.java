@@ -1,11 +1,11 @@
-package com.github.FernandoNakason.ms_produto.service;
+package com.github.FernandoNakasone.ms_produto.service;
 
-import com.github.FernandoNakason.ms_produto.dto.ProdutoDTO;
-import com.github.FernandoNakason.ms_produto.entities.Categoria;
-import com.github.FernandoNakason.ms_produto.entities.Produto;
-import com.github.FernandoNakason.ms_produto.exceptions.ResourceNotFoundException;
-import com.github.FernandoNakason.ms_produto.repositories.CategoriaRepository;
-import com.github.FernandoNakason.ms_produto.repositories.ProdutoRepository;
+import com.github.FernandoNakasone.ms_produto.dto.ProdutoDTO;
+import com.github.FernandoNakasone.ms_produto.entities.Categoria;
+import com.github.FernandoNakasone.ms_produto.entities.Produto;
+import com.github.FernandoNakasone.ms_produto.exceptions.ResourceNotFoundException;
+import com.github.FernandoNakasone.ms_produto.repositories.CategoriaRepository;
+import com.github.FernandoNakasone.ms_produto.repositories.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
