@@ -2,6 +2,7 @@ package com.github.FernandoNakasone.ms_produto.service;
 
 import com.github.FernandoNakasone.ms_produto.dto.CategoriaDTO;
 import com.github.FernandoNakasone.ms_produto.entities.Categoria;
+import com.github.FernandoNakasone.ms_produto.exceptions.DatabaseException;
 import com.github.FernandoNakasone.ms_produto.exceptions.ResourceNotFoundException;
 import com.github.FernandoNakasone.ms_produto.repositories.CategoriaRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -65,7 +66,7 @@ public class CategoriaService {
         try {
             categoriaRepository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityViolationException("Não foi possível excluir a categoria. " + "Existem produtos associados a ela");
+            throw new DatabaseException("Não foi possível excluir a categoria. " + "Existem produtos associados a ela");
         }
     }
 }

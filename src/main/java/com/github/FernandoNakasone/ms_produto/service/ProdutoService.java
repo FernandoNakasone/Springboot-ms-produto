@@ -3,11 +3,13 @@ package com.github.FernandoNakasone.ms_produto.service;
 import com.github.FernandoNakasone.ms_produto.dto.ProdutoDTO;
 import com.github.FernandoNakasone.ms_produto.entities.Categoria;
 import com.github.FernandoNakasone.ms_produto.entities.Produto;
+import com.github.FernandoNakasone.ms_produto.exceptions.DatabaseException;
 import com.github.FernandoNakasone.ms_produto.exceptions.ResourceNotFoundException;
 import com.github.FernandoNakasone.ms_produto.repositories.CategoriaRepository;
 import com.github.FernandoNakasone.ms_produto.repositories.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,11 +42,15 @@ public class ProdutoService {
     @Transactional
     public ProdutoDTO saveProduto(ProdutoDTO produtoDTO){
 
-        Produto produto = new Produto();
+        try {
+            Produto produto = new Produto();
 
-        copyDtoToProduto(produtoDTO,produto);
-        produto = produtoRepository.save(produto);
-        return new ProdutoDTO(produto);
+            copyDtoToProduto(produtoDTO, produto);
+            produto = produtoRepository.save(produto);
+            return new ProdutoDTO(produto);
+        } catch (DataIntegrityViolationException e){
+            throw new DatabaseException("Não foi possível salvar o produto. categoria inexistente " + " (ID: " + produtoDTO.getCategoria().getId() + ")");
+        }
     }
 
     @Transactional
