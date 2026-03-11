@@ -1,0 +1,7 @@
+package com.github.FernandoNakasone.ms_produto.exceptions;
+
+public class DatabaseException extends RuntimeException {
+    public DatabaseException(String message) {
+        super(message);
+    }
+}
