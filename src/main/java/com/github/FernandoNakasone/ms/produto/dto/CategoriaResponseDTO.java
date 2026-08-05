@@ -4,10 +4,12 @@ import com.github.FernandoNakasone.ms.produto.entities.Categoria;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 public class CategoriaResponseDTO {
 
     private Long id;
