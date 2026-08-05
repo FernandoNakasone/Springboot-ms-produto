@@ -1,10 +1,10 @@
-package com.github.FernandoNakasone.ms_produto.exceptions.handler;
+package com.github.FernandoNakasone.ms.produto.exceptions.handler;
 
 
-import com.github.FernandoNakasone.ms_produto.exceptions.DatabaseException;
-import com.github.FernandoNakasone.ms_produto.exceptions.ResourceNotFoundException;
-import com.github.FernandoNakasone.ms_produto.exceptions.dto.CustomErrorDTO;
-import com.github.FernandoNakasone.ms_produto.exceptions.dto.ValidationErrorDTO;
+import com.github.FernandoNakasone.ms.produto.exceptions.DatabaseException;
+import com.github.FernandoNakasone.ms.produto.exceptions.ResourceNotFoundException;
+import com.github.FernandoNakasone.ms.produto.exceptions.dto.CustomErrorDTO;
+import com.github.FernandoNakasone.ms.produto.exceptions.dto.ValidationErrorDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.github.FernandoNakasone.ms_produto;
+package com.github.FernandoNakasone.ms.produto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

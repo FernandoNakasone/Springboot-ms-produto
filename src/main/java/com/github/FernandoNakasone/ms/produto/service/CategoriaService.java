@@ -1,10 +1,11 @@
-package com.github.FernandoNakasone.ms_produto.service;
+package com.github.FernandoNakasone.ms.produto.service;
 
-import com.github.FernandoNakasone.ms_produto.dto.CategoriaDTO;
-import com.github.FernandoNakasone.ms_produto.entities.Categoria;
-import com.github.FernandoNakasone.ms_produto.exceptions.DatabaseException;
-import com.github.FernandoNakasone.ms_produto.exceptions.ResourceNotFoundException;
-import com.github.FernandoNakasone.ms_produto.repositories.CategoriaRepository;
+import com.github.FernandoNakasone.ms.produto.dto.CategoriaRequestDTO;
+import com.github.FernandoNakasone.ms.produto.dto.CategoriaResponseDTO;
+import com.github.FernandoNakasone.ms.produto.entities.Categoria;
+import com.github.FernandoNakasone.ms.produto.exceptions.DatabaseException;
+import com.github.FernandoNakasone.ms.produto.exceptions.ResourceNotFoundException;
+import com.github.FernandoNakasone.ms.produto.repositories.CategoriaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -21,38 +22,38 @@ public class CategoriaService {
     private CategoriaRepository categoriaRepository;
 
     @Transactional(readOnly = true)
-    public List<CategoriaDTO> findAllCategorias(){
+    public List<CategoriaResponseDTO> findAllCategorias(){
 
-        return categoriaRepository.findAll().stream().map(CategoriaDTO::new).toList();
+        return categoriaRepository.findAll().stream().map(CategoriaResponseDTO::new).toList();
     }
 
     @Transactional(readOnly = true)
-    public CategoriaDTO findCategoriaById(Long id){
+    public CategoriaResponseDTO findCategoriaById(Long id){
         Categoria categoria = categoriaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado. ID:" + id));
 
-        return new CategoriaDTO(categoria);
+        return new CategoriaResponseDTO(categoria);
     }
 
     @Transactional
-    public CategoriaDTO saveCategoria(CategoriaDTO inputDTO){
+    public CategoriaResponseDTO saveCategoria(CategoriaRequestDTO inputDTO){
         Categoria categoria = new Categoria();
         copyDtoToCategoria(inputDTO,categoria);
         categoria = categoriaRepository.save(categoria);
-        return new CategoriaDTO(categoria);
+        return new CategoriaResponseDTO(categoria);
     }
 
-    private void copyDtoToCategoria(CategoriaDTO inputDTO, Categoria categoria) {
+    private void copyDtoToCategoria(CategoriaRequestDTO inputDTO, Categoria categoria) {
         categoria.setNome(inputDTO.getNome());
     }
 
     @Transactional
-    public CategoriaDTO updateCategoria(Long id, CategoriaDTO inputDTO){
+    public CategoriaResponseDTO updateCategoria(Long id, CategoriaRequestDTO inputDTO){
 
         try{
             Categoria categoria = categoriaRepository.getReferenceById(id);
             copyDtoToCategoria(inputDTO,categoria);
             categoria = categoriaRepository.save(categoria);
-            return new CategoriaDTO(categoria);
+            return new CategoriaResponseDTO(categoria);
         }catch (EntityNotFoundException ex){
             throw new ResourceNotFoundException("Recurso não encontrado. ID:" + id);
         }

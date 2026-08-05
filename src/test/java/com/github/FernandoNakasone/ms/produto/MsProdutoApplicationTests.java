@@ -1,4 +1,4 @@
-package com.github.FernandoNakasone.ms_produto;
+package com.github.FernandoNakasone.ms.produto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
